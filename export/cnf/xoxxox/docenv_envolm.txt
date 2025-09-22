@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+
+ENV OPTAPT=""
+#ENV OPTAPT="-o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true"
+RUN \
+  apt-get ${OPTAPT} -y update && \
+  apt-get ${OPTAPT} -y upgrade && \
+  apt-get ${OPTAPT} -y install curl && \
+  rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL https://ollama.com/install.sh | sh
