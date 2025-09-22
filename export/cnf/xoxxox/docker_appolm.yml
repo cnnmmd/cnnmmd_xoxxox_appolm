@@ -3,16 +3,16 @@ networks:
     name: xoxxox_netmid
     external: true
 services:
-  xoxxox_tttlcp:
+  xoxxox_appolm:
     image: xoxxox/envolm:001
     container_name: xoxxox_appolm
     volumes:
     - ../../../export:/opt/common
-    - - ../../../import/cnnmmd_xoxxox_appolm/appolm/olm:/root/.ollama
+    - ../../../import/cnnmmd_xoxxox_appolm/appolm/olm:/root/.ollama
     env_file:
     - ./envdir.txt
     environment:
-    - OLLAMA_HOST=0.0.0.0:11434
+    - OLLAMA_HOST=0.0.0.0:80
     ports:
-    - 11434:11434
+    - 11434:80
     command: "ollama serve"
